@@ -18,12 +18,27 @@ public class Address {
 	@GeneratedValue(strategy = GenerationType.AUTO)
 	private long id;
 
+	@Column(nullable = true)
 	private String street;
+	
+	@Column(nullable = true)
     private String city;
+	
+	@Column(nullable = true)
     private String zipCode;
+	
+	@Column(nullable = true)
+    private String longitude;
+	
+	@Column(nullable = true)
+    private String latitude;
 	
 	@OneToOne(fetch = FetchType.LAZY)
     @JoinColumn(name = "user_id")
     private User user;
+	
+	@OneToOne(fetch = FetchType.LAZY)
+    @JoinColumn(name = "post_id")
+    private Post post;
 
 }

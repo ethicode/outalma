@@ -38,6 +38,9 @@ public class Post {
 	@Column(nullable=true)
 	private boolean isBlocked = false;
 	
+	@OneToOne(mappedBy = "post", cascade = CascadeType.ALL, fetch = FetchType.LAZY)
+	private Address address;
+	
 	@Column(name="add", nullable=true)
 	private LocalDateTime add;
 	
